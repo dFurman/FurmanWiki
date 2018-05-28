@@ -1,0 +1,17 @@
+<div class="bodyDiv">
+  <table>
+    <tr>
+      <td><span>Title:</span></td>
+      <td><input [(ngModel)]="title"></td>
+    </tr>
+    <tr>
+      <td><span>Author:</span></td>
+      <td><input [(ngModel)]="author"></td>
+    </tr>
+  </table>
+  <h1>Body:</h1>
+  <textarea [(ngModel)]="body" rows="30" cols="120"></textarea>
+  <br>
+  <button (click)="onAdd()" routerLink="/articles">Save</button>
+  <button (click)="onCancel()">Cancel</button>
+</div>

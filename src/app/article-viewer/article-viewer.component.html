@@ -1,0 +1,16 @@
+<div class="bodyDiv">
+  <div id="sideNavContainer">
+    <app-aricle-side-nav></app-aricle-side-nav>
+  </div>
+<div class="articleHeader">
+  <h1 class="articleTitle">{{selectedArticle.title}}</h1>
+  <h4 class="dateCreated">Created on: {{selectedArticle.dateCreated}} By: {{selectedArticle.author}}</h4>
+</div>
+  <div class="ArticleBody">
+    <img src="{{selectedArticle.imgUrl}}">
+    <!--{{formatBody(selectedArticle.body)}}-->
+    {{selectedArticle.body}}
+  </div>
+  <br>
+  <button routerLink="/articles/{{selectedArticle.id}}/edit">EDIT</button>
+</div>

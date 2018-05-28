@@ -1,0 +1,15 @@
+<div class="bodyDiv">
+  <div class="header" (click)="toggleArticles()">Articles:</div>
+  <div class="articles" *ngIf="articlesToggle">
+    <ul>
+      <li *ngFor="let article of articles">
+        <a routerLink="/articles/{{article.id}}" (click)="selectArticle(article.id)">
+          {{article.title}}
+        </a>
+      </li>
+      <li>
+        <a routerLink="/articles/new">+Add Article</a>
+      </li>
+    </ul>
+  </div>
+</div>

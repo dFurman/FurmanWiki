@@ -1,0 +1,40 @@
+.header{
+  display: block;
+  padding: 3px 0px 0px 6px;
+  margin-bottom: 0;
+  /*font-size: 16px;*/
+  color: #6c757d;
+  white-space: nowrap;
+  border-bottom: 2px #313128 solid;
+  font-size: 20px;
+  /* font-weight: 500; */
+  font-family: monospace;
+}
+
+.bodyDiv{
+  border: #5a6268 solid 1px;
+  border-radius: 5px;
+  position: relative;
+  /*display: inline-block;*/
+  min-height: 50px;
+  width: 200px;
+  margin-left: 20px;
+  margin-bottom: 80px;
+  /*right: 0px;*/
+  top: 60px;
+  float:right;
+}
+
+ul{
+  list-style-type: none;
+}
+
+li, a{
+  text-decoration: none;
+  color: black;
+  font-family: 'Oswald', sans-serif;
+}
+
+a:hover{
+  color: white;
+}

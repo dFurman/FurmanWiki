@@ -1,0 +1,17 @@
+<div class="bodyDiv">
+  <table>
+    <tr>
+      <td><span>Title:</span></td>
+      <td><input [(ngModel)]="article.title"></td>
+    </tr>
+    <tr>
+      <td><span>Author:</span></td>
+      <td><input [(ngModel)]="article.author"></td>
+    </tr>
+  </table>
+  <h1>Body:</h1>
+  <textarea [(ngModel)]="article.body" rows="30" cols="120"></textarea>
+  <br>
+  <button>Save</button>
+  <button (click)="onCancel()">Cancel</button>
+</div>

@@ -1,0 +1,9 @@
+<!--<div id="ArticleViewer">-->
+  <!--<app-article-viewer></app-article-viewer>-->
+<!--</div>-->
+<div class="Article" *ngFor="let article of articles" routerLink="/articles/{{article.id}}">
+<img src="{{article.imgUrl}}">
+  <a routerLink="/articles/{{article.id}}"> <h2>{{article.title}}</h2></a>
+  <span class="dateCreated">Created On: {{article.dateCreated}}, By: {{article.author}}</span>
+  <p>{{article.body.slice(0,100)}}...</p>
+</div>

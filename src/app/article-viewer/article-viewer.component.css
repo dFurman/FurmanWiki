@@ -1,0 +1,50 @@
+
+.ArticleBody{
+  /*max-width: 70%;*/
+  margin-top: 10px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.ArticleBody::first-letter{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.articleTitle{
+  position: relative;
+  /*left: 20px;*/
+  display: block;
+  line-height: 10px;
+}
+ .bodyDiv{
+   /*display: flex;*/
+   /*flex-wrap: wrap;*/
+   position: relative;
+   width: 65%;
+   /*background: #c3c9ce;*/
+   margin: 50px auto;
+
+ }
+.dateCreated{
+  display: block;
+  line-height: 0.5px;
+  position: relative;
+  left: 20px;
+  color: #926e6e;
+}
+
+.articleHeader{
+  border-bottom: #bcc5ce 2px solid;
+}
+
+img{
+  float: left;
+  width: 170px;
+  height: 210px;
+  margin-right: 5px;
+  border-radius: 10px;
+}
+
+.bold{
+  color:green;
+}

@@ -1,0 +1,11 @@
+.bodyDiv{
+  margin: 20px auto;
+  position: relative;
+  width: 60%;
+}
+
+
+span,h1{
+  font-family: 'Oswald', sans-serif;
+}
+
