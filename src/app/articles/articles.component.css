@@ -39,3 +39,7 @@ a:hover{
   color:white;
 }
 
+.bodyDiv{
+  width: 65%;
+  margin: 50px auto;
+}

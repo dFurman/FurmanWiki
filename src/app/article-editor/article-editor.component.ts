@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Article} from '../Article';
 import {ArticleService} from '../article.service';
 import {Location} from '@angular/common';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-article-editor',
@@ -11,19 +12,25 @@ import {Location} from '@angular/common';
 export class ArticleEditorComponent implements OnInit {
 
   constructor(private articleSvc: ArticleService,
-              private location: Location) {
+              private location: Location,
+              private route: ActivatedRoute,) {
   }
 
   article: Article;
-  backupArticle: Article;
+
 
   ngOnInit() {
-    this.article = this.articleSvc.getSelectedArticle();
-    this.backupArticle = this.article;
-    // console.log('OnInit '+ this.article.title + ' ' + this.articleSvc.getSelectedArticle().title;
+    this.setArticle(+this.route.snapshot.paramMap.get('id'));
   }
 
-  onCancel(): void {
-    this.location.back();
+  setArticle(id) {
+    this.article = this.articleSvc.getArticle(id);
+  }
+
+  onSave(title, author, body, imgUrl) {
+    this.article.title = title;
+    this.article.author = author;
+    this.article.body = body;
+    this.article.imgUrl = imgUrl;
   }
 }

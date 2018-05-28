@@ -12,6 +12,8 @@ import { ArticleEditorComponent } from './article-editor/article-editor.componen
 import { NewArticleFormComponent } from './new-article-form/new-article-form.component';
 import { FormatDatePipe } from './format-date.pipe';
 import {HttpClientModule} from '@angular/common/http';
+import {MatDialogModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

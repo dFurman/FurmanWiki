@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ArticleService} from '../article.service';
 import {Article} from '../Article';
 import {ActivatedRoute} from '@angular/router';
+import {ArticleEditorComponent} from '../article-editor/article-editor.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-article-viewer',
@@ -14,7 +16,8 @@ export class ArticleViewerComponent implements OnInit {
   id: number;
 
   constructor(private articleSvc: ArticleService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -25,21 +28,16 @@ export class ArticleViewerComponent implements OnInit {
     this.selectedArticle = this.articleSvc.getArticle(id);
   }
 
-  formatBody(text: string) {
-    let newText: string;
-    // while (text.indexOf('**')) {
-    const first = text.indexOf('**');
-    const second = text.indexOf('**', first + 1);
-    newText = text.slice(0, first);
-    newText += `<span class="bold">`;
-    newText += text.slice(first + 2, second);
-    newText += `</span>`;
-    newText += text.slice(second + 2, text.length);
 
-    text = newText;
-    // }
-    // console.log(text);
-    return text;
+  openEditor(){
+    const dialogRef = this.dialog.open(ArticleEditorComponent, {
+      width: '65%',
+      height: '30%'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 

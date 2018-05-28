@@ -1,7 +1,10 @@
+<div class="body">
 <h1>Last 5 Articles</h1>
 <div class="bodyDiv">
   <div class="articleCard" *ngFor="let article of lastArticles">
-    <img src="{{article.imgUrl}}">
+    <a routerLink="/articles/{{article.id}}"> <img src="{{article.imgUrl}}">
     <h3>{{article.title}}</h3>
+    </a>
   </div>
+</div>
 </div>

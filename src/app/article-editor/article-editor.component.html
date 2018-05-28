@@ -1,17 +1,28 @@
 <div class="bodyDiv">
+  <div class="detailsInput">
   <table>
+    <div class="Inputs">
     <tr>
       <td><span>Title:</span></td>
-      <td><input [(ngModel)]="article.title"></td>
+      <td><input #title [value]="article.title"></td>
     </tr>
     <tr>
       <td><span>Author:</span></td>
-      <td><input [(ngModel)]="article.author"></td>
+      <td><input #author [value]="article.author"></td>
     </tr>
+    <tr>
+      <td><span>Image Url:</span></td>
+      <td><input #url [value]="article.imgUrl" (blur)="0"></td>
+    </tr>
+    </div>
   </table>
+    <div class="imgShow">
+      <img src="{{url.value}}">
+    </div>
+  </div>
   <h1>Body:</h1>
-  <textarea [(ngModel)]="article.body" rows="30" cols="120"></textarea>
+  <textarea #body [value]="article.body" rows="30" cols="120"></textarea>
   <br>
-  <button>Save</button>
-  <button (click)="onCancel()">Cancel</button>
+  <button (click)="onSave(title.value, author.value, body.value, url.value)" routerLink="/articles/{{article.id}}">Save</button>
+  <button routerLink="/articles/{{article.id}} ">Cancel</button>
 </div>
