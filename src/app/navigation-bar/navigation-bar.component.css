@@ -36,4 +36,14 @@ a:hover{
   color:white;
 }
 
+form{
+  display: flex;
+  /*float: right;*/
+}
+
+.searchTxt{
+  height: 20px;
+  align-self: center;
+}
+
 

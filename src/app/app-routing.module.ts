@@ -6,6 +6,7 @@ import {ArticlesComponent} from './articles/articles.component';
 import {ArticleViewerComponent} from './article-viewer/article-viewer.component';
 import {ArticleEditorComponent} from './article-editor/article-editor.component';
 import {NewArticleFormComponent} from './new-article-form/new-article-form.component';
+import {SearchArticlesComponent} from './search-articles/search-articles.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'articles', component: ArticlesComponent},
   {path: 'articles/new', component: NewArticleFormComponent},
   {path: 'articles/:id', component: ArticleViewerComponent},
-  {path: 'articles/:id/edit', component: ArticleEditorComponent}
+  {path: 'articles/:id/edit', component: ArticleEditorComponent},
+  {path: 'search', component: SearchArticlesComponent}
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ArticleService} from '../article.service';
 import {Article} from '../Article';
 
@@ -9,10 +9,13 @@ import {Article} from '../Article';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private articleSvc: ArticleService) { }
-lastArticles: Article[]
+  constructor(private articleSvc: ArticleService) {
+  }
+
+  lastArticles: Article[];
+
   ngOnInit() {
-    this.articleSvc.getArticles().subscribe(data => this.lastArticles = data.slice(data.length-5, data.length))
+    this.articleSvc.getArticles().subscribe(data => this.lastArticles = data.slice(data.length - 3, data.length));
     // console.log(this.lastArticles)
   }
 

@@ -14,6 +14,7 @@ import { FormatDatePipe } from './format-date.pipe';
 import {HttpClientModule} from '@angular/common/http';
 import {MatDialogModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SearchArticlesComponent } from './search-articles/search-articles.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ArticleViewerComponent,
     ArticleEditorComponent,
     NewArticleFormComponent,
-    FormatDatePipe
+    FormatDatePipe,
+    SearchArticlesComponent
   ],
   imports: [
     BrowserModule,

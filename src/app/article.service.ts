@@ -15,9 +15,10 @@ export class ArticleService {
   selectedArticle: Article = this.articles[0];
   public articlesNew;
 
+  filteredArticles: Article[];
+
   constructor(private http: HttpClient) {
   }
-
 
 
   newFormattedDate() {
@@ -54,12 +55,23 @@ export class ArticleService {
     return this.articles.find(article => article.id === id);
   }
 
-  getArticlesDB(){
+  getArticlesDB() {
     return this.http.get('http://localhost:4000/articles');
   }
 
   getSelectedArticle(): Article {
     return this.selectedArticle;
+  }
+
+  searchArticle(filter): Article[] {
+    this.filteredArticles = [];
+    // const filteredArticles: Article[] = [];
+    this.articles.forEach(element => {
+      if (!element.title.toLowerCase().indexOf(filter.toLowerCase())) {
+        this.filteredArticles.push(element);
+      }
+    });
+    return this.filteredArticles;
   }
 
   addNewArticle(title: string, body: string, author: string) {
@@ -75,7 +87,9 @@ export class ArticleService {
     };
 
     this.articles.push(newArticle);
-    console.log('Article Added !')
+    console.log('Article Added !');
     return newArticle;
   }
+
 }
+

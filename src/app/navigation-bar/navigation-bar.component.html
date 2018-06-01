@@ -7,5 +7,12 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/articles">Articles</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/articles/new">+New Article</a>
+      </li>
     </ul>
+  <form>
+    <input #searchTxt class="searchTxt" placeholder="Search...">
+    <button routerLink="/search" (click)="setFilteredArticles(searchTxt.value)">Search</button>
+  </form>
 </nav>

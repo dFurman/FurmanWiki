@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ArticleService} from '../article.service';
+import {SearchArticlesComponent} from '../search-articles/search-articles.component';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private articleSvc: ArticleService) { }
 
   ngOnInit() {
+  }
+
+  setFilteredArticles(filter){
+    this.articleSvc.searchArticle(filter);
   }
 
 }
