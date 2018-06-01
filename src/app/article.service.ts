@@ -67,10 +67,12 @@ export class ArticleService {
     this.filteredArticles = [];
     // const filteredArticles: Article[] = [];
     this.articles.forEach(element => {
-      if (!element.title.toLowerCase().indexOf(filter.toLowerCase())) {
+      console.log(element.title.toLowerCase().indexOf(filter.toLowerCase()))
+      if (element.title.toLowerCase().indexOf(filter.toLowerCase()) >= 0) {
         this.filteredArticles.push(element);
       }
     });
+      // console.log(this.filteredArticles)
     return this.filteredArticles;
   }
 
