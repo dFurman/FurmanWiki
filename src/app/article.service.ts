@@ -2,8 +2,6 @@ import {Injectable} from '@angular/core';
 import {Article} from './Article';
 import {Observable, of} from 'rxjs';
 import {ARTICLES} from './mock-articles';
-import {FormatDatePipe} from './format-date.pipe';
-import {formatDate} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
@@ -13,9 +11,8 @@ export class ArticleService {
 
   articles: Article[] = ARTICLES;
   selectedArticle: Article = this.articles[0];
-  public articlesNew;
 
-  filteredArticles: Article[];
+  filteredArticles: Article[] = this.articles;
 
   constructor(private http: HttpClient) {
   }
@@ -48,7 +45,6 @@ export class ArticleService {
 
   selectArticle(id) {
     this.selectedArticle = this.articles.find(article => article.id === id);
-    // console.log(`Article ${this.selectedArticle.title} Selected`);
   }
 
   getArticle(id): Article {
@@ -63,17 +59,18 @@ export class ArticleService {
     return this.selectedArticle;
   }
 
-  searchArticle(filter): Article[] {
+  searchArticle(filter): Observable<Article[]> {
     this.filteredArticles = [];
-    // const filteredArticles: Article[] = [];
     this.articles.forEach(element => {
-      console.log(element.title.toLowerCase().indexOf(filter.toLowerCase()))
       if (element.title.toLowerCase().indexOf(filter.toLowerCase()) >= 0) {
         this.filteredArticles.push(element);
       }
     });
-      // console.log(this.filteredArticles)
-    return this.filteredArticles;
+    return this.getFilteredArticle();
+  }
+
+  getFilteredArticle(): Observable<Article[]> {
+    return of(this.filteredArticles);
   }
 
   addNewArticle(title: string, body: string, author: string) {

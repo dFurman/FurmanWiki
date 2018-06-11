@@ -17,8 +17,12 @@ export class ArticlesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleSvc.getArticles().subscribe(data => this.articles = data);
+    // this.articleSvc.getArticles().subscribe(data => this.articles = data);
     // console.log(this.articleSvc.getArticlesDB().subscribe(data => return data));
+    // this.articles = this.articleSvc.filteredArticles;
+    this.articleSvc.getFilteredArticle().subscribe(data => {
+      this.articles = data;
+    })
   }
 
 }
